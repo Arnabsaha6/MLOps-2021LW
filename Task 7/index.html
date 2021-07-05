@@ -1,0 +1,97 @@
+<html>
+  <head>
+        <link rel="stylesheet" href='style.css'>
+        <script defer src="http://use.fontawesome.com/release/v5.0.6/is/all.js"> </script>
+        <script src="https://kit.fontawesome.com/384cb70151.js" crossorigin="anonymous"></script>
+  </head>
+        <div class='text'> DOCKER WEBAPP </div>
+        <div class="search-box">
+                <input class="search-txt" type="text" placeholder="Docker Command" id="in1" />
+                <a class="search-btn" onclick='lw();' href="#">
+                <i class="fab fa-docker"></i>
+                </a>
+        </div>
+        <div class='dropdown' >
+                <button class='Click'> Basic Commands</button>
+                <div class='list'>
+                        <button class='links' onclick="c1();"> List all Conatiner</button>
+                        <button class='links' onclick='c2();'> List running Container</button>
+                        <button class='links' onclick='c3();'> List all Images </button>
+                        <button class='links' onclick='c4();'> Launch Container</button>
+                        <button class='links' onclick='c5();'> Stop Container</button>
+                        <button class='links' onclick='c6();'> Start Container</button>
+                        <button class='links' onclick='c7();'> Rename Container</button>
+                        <button class='links' onclick='c8();'> Commit image </button>
+                        <button class='links' onclick='c9();'> Remove Container</button>
+                        <button class='links' onclick='c10();'> Remove Images</button>
+                </div>
+        </div>
+        <script>
+                let click = document.querySelector('.click');
+                let list = document.querySelector('.list');
+                click.addEventListener("click",()=>{
+                        list.classList.toggle('newlist');
+                });
+        </script>
+<br/>
+
+
+<script>
+function changeBackground(color){
+   document.body.style.background = color;
+}
+window.addEventListener("load",function(){changeBackground('lightblue')});
+</script>
+
+<pre><div class='output-box' id="div1"> </div></pre>
+<script>
+        function c1(){
+                document.getElementById("in1").value = "docker ps -a"
+        }
+        function c2(){
+                document.getElementById("in1").value = "docker ps"
+        }
+        function c3(){
+                document.getElementById("in1").value = "docker images"
+        }
+        function c4(){
+                document.getElementById("in1").value = "docker run -itd --name container_name image_name"
+        }
+        function c5(){
+                document.getElementById("in1").value = "docker stop container_name"
+        }
+        function c6(){
+                document.getElementById("in1").value = "docker start Container_name"
+        }
+        function c7(){
+                document.getElementById("in1").value = "docker rename container_name new_name"
+        }
+        function c8(){
+                document.getElementById("in1").value = "docker commit container_name name:version"
+        }
+        function c9(){
+                document.getElementById("in1").value = "docker rm -f container_name"
+        }
+        function c10(){
+                document.getElementById("in1").value = "docker rmi -f  image_id"
+        }
+
+
+
+</script>
+
+<script>
+        function lw(){
+                var inp = document.getElementById("in1").value;
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET","http://192.168.43.144/cgi-bin/backend.py?x="+inp,true);
+                xhr.send();
+                xhr.onload = function (){
+                        var out = xhr.responseText;
+                        document.getElementById("div1").innerHTML = out;
+                        document.getElementById("in1").value = "";
+                }
+        }
+</script>
+
+</html>

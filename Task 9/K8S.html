@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>docker menu</title>
+    <link rel="stylesheet" href="k8s.css" />    
+  </head>
+  <body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a id="navbar__logo">K8S</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero" id="home">
+      <div class="hero__container">
+        <h1 class="hero__heading">
+          [prompt@<span>k8s</span>]: 
+          <input  class="input_bar" id="cmdin" /> 
+          <button class="main__btn" id='submit_btn'  onclick="terminal();"><a>enter</a></button>
+        </h1>        
+      </div>
+      <pre>
+      <div class="output_div" >
+        <p class="output_para" id="cmdout" >
+          OUTPUT
+        </p>
+      </div>
+      </pre>
+    </div>    
+
+    <!-- Services Section -->
+
+    <div class="services" id="services">
+      <h1>other services</h1>
+      <div class="services__wrapper">
+        <div class="services__card">
+          <h2>DOCKER </h2>
+          <div class="services__btn">
+            <button onclick="launch();">view</button>
+          </div>
+        </div>
+        <div class="services__card">
+          <h2>command terminal</h2>
+          <div class="services__btn">
+            <button onclick="ss();">go</button>
+          </div>
+        </div>
+        <div class="services__card">
+          <h2>upcoming...</h2>
+        </div>
+        <div class="services__card">
+          <h2>upcoming .....</h2>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="k8s.js"></script>
+  </body>
+</html>
